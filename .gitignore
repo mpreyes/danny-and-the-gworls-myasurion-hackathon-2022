@@ -162,7 +162,7 @@ dmypy.json
 # Cython debug symbols
 cython_debug/
 
-
+node_modules
 
 
 # Logs
@@ -208,3 +208,5 @@ test/*.js
 
 .dccache
 .DS_Store
+*.pyc
+.vscode
