@@ -37,7 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'aspen_api.apps.AspenApiConfig'
+    'aspen_api.apps.AspenApiConfig',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
