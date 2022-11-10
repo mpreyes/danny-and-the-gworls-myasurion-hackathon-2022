@@ -1,0 +1,21 @@
+{
+	"name": "@mpreyes/asurion_aspen_app",
+	"version": "1.0.0",
+	"description": "danny and the gworls",
+	"main": "index.ts",
+	"scripts": {
+		"test": "test"
+	},
+	"repository": {
+		"type": "git",
+		"url": "mpreyes"
+	},
+	"keywords": [
+		"/"
+	],
+	"author": "etew4t",
+	"license": "ISC",
+	"dependencies": {
+		"@mpreyes/asurion-aspen-pkg": "^1.0.0"
+	}
+}
