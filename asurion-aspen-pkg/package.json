@@ -2,10 +2,8 @@
   "name": "@mpreyes/asurion-aspen-pkg",
   "version": "1.0.0",
   "description": "",
-  "main": "dummy.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+  "repository": "https://github.com/mpreyes/danny-and-the-gworls-myasurion-hackathon-2022",
+  "main": "index.js",
   "keywords": [],
   "author": "",
   "license": "ISC"
