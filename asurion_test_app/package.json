@@ -16,6 +16,6 @@
 	"author": "etew4t",
 	"license": "ISC",
 	"dependencies": {
-		"@mpreyes/asurion-aspen-pkg": "^1.0.0"
+		"@mpreyes/asurion-aspen-pkg": "^1.0.2"
 	}
 }
