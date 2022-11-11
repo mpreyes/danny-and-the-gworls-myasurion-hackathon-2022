@@ -4,7 +4,7 @@
     <link rel="stylesheet" href="{% static 'aspen.css' %}">
         <body>
             <div class="top-nav">
-                <h1>Asurion Team Registry</h1>
+                <div class="main-title">Asurion Team Registry</div>
             </div>
 
             <div class="search-container">
@@ -16,11 +16,30 @@
                 </div>
             </div>
           
+            <div class="sort-text"><a>Sort A-Z</a> </div>
             {% for i in team_list %}
             <div class="card">
                 <div class="container">
                     <h2>{{i.name}}</h2>
-                    <h4>Repository Url: {{i.url}}</h4>
+                    <div class="row">
+                        <div class="team-info-title">Mission Statement:</div>
+                        <div class="mission-statement">This is a mission statement for this team</div>
+                    </div>
+                    <div class="row">
+                        <div class="column">
+                            <div class="team-info-title">Quick Links:</div>
+                            <div class="row">
+                                <a href="https://www.w3docs.com/" class="aui-button">Repository</a>
+                                <a href="google.com" class="aui-button">Notion</a>
+                            </div>
+                        </div>
+                        <div class="column">
+                            <div class="team-info-title">Contact:</div>
+                            <p>Product Manager: {{i.product_manager}}</p>
+                            <p>Tech Lead: {{i.tech_lead}}</p>
+                            <p>Designer: {{i.designer}}</p>
+                        </div>
+                    </div>
                 </div>
             </div>
             {% endfor %}

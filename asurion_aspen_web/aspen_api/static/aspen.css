@@ -4,9 +4,10 @@ html{
 body {
     background-color: #121212;
     color: white;
-    font-family: "Clarkson",Helvetica,sans-serif;
+    font-family: Helvetica, sans-serif;
     font-style: normal;
     margin: 0;
+    font-weight: 500;
   }
 
   .card {
@@ -25,7 +26,7 @@ body {
     padding: 2px 16px;
     background-color: white;
     color: black;
-    margin: 6rem;
+    margin: 3rem;
   }
 
   .top-nav{
@@ -34,13 +35,13 @@ body {
   }
 
   .search-container {
-    position: absolute;
+    /* position: absolute; */
     width: 100%;
     margin: 1em;
   }
 
   .search {
-    position: relative;
+    /* position: relative; */
     display: flex;
     color: black;
   }
@@ -62,8 +63,8 @@ body {
   .searchButton {
     width: 80px;
     height: 36px;
-    border: 1px solid #00B4CC;
-    background: #00B4CC;
+    border: 1px solid rgb(130, 35, 210);
+    background: rgb(130, 35, 210);
     text-align: center;
     color: #fff;
     border-radius: 0 5px 5px 0;
@@ -73,7 +74,7 @@ body {
 
   .search-term {
     width: 100%;
-    border: 1px solid #00B4CC;
+    border: 1px solid rgb(130, 35, 210);
     border-right: none;
     padding: 5px;
     height: 20px;
@@ -84,5 +85,63 @@ body {
   }
   
   .search-term:focus{
-    color: #00B4CC;
+    color: rgb(130, 35, 210);
+  }
+  
+  .aui-button {
+    font-family: inherit;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 1rem;
+    letter-spacing: 0px;
+    text-align: center;
+    white-space: nowrap;
+    width: auto;
+    height: 2.5rem;
+    padding: 0.2rem 0.7rem;
+    display: flex;
+    -webkit-box-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    align-items: center;
+    border-style: solid;
+    border-width: 0.125rem;
+    border-radius: 10rem;
+    background: rgb(130, 35, 210);
+    border-color: rgb(130, 35, 210);
+    color: rgb(255, 255, 255);
+    margin-right: 5px;
+    text-decoration: none;
+  }
+
+  .row {
+    display: flex;
+    padding-top:10px;
+    padding-bottom:10px
+  }
+  
+  .column {
+    flex: 50%;
+  }
+
+  .team-info-title {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+
+  .sort-text {
+    margin: 3rem;
+    font-size: 22px;
+    text-decoration: underline;
+  }
+
+  .mission-statement{
+    font-size: 20px;
+    margin-left: 5px;
+  }
+
+  .main-title{
+    font-size:36px;
+    padding: 16px;
   }
