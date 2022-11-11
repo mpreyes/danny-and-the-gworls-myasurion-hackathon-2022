@@ -22,7 +22,7 @@ function syncReadFile(filename: string) {
 	// const aspenFile = findAspenFile(1);
 	// console.log("aspenFile", aspenFile);
 
-	const result = fs.readFileSync(join("../../../ASPEN.mdn", filename), "utf-8");
+	const result = fs.readFileSync(join("../../../ASPEN.md", filename), "utf-8");
 
 	console.log("__dirname", __dirname, "filename", filename);
 
