@@ -14,5 +14,5 @@ router.register('teams', views.TeamViewSet)
 urlpatterns = [
     url('', include(router.urls)),
     url('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
-    url('', views.aspen, name='aspen')
+    url('aspen/', views.aspen, name='aspen')
 ]
