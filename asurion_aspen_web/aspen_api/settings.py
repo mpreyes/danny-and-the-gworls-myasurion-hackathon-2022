@@ -21,6 +21,6 @@ TEMPLATES = [
         },
     },
 ]
-  INSTALLED_APPS = [
-    'fontawesomefree'
-  ]
+INSTALLED_APPS = [
+'fontawesomefree'
+]
