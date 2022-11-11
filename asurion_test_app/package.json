@@ -4,6 +4,7 @@
 	"description": "danny and the gworls",
 	"main": "index.ts",
 	"scripts": {
+		"start": "node index",
 		"test": "test"
 	},
 	"repository": {
