@@ -3,7 +3,7 @@
 	"version": "1.0.2",
 	"description": "",
 	"repository": "https://github.com/mpreyes/danny-and-the-gworls-myasurion-hackathon-2022",
-	"main": "scripty.ts",
+	"main": "scripty.js",
 	"keywords": [],
 	"author": "",
 	"license": "ISC",
