@@ -5,7 +5,7 @@ This package was created by Grace Harders, Daniel Ryan, Madelyn Reyes, and Jenab
 ## Purpose
 
 As developers at Asurion we have seen that knowledge transfer between teams can be tricky.
-Our options for team knowledge transfer are Slack (where messages are easily lost), Notion (with a difficult file structure), or Backstage (costly and lacks customization). 
+Our options for team knowledge transfer are Slack (where messages are easily lost), Notion (with a difficult file structure), or Backstage (costly and lacks customization).
 We wanted to create a new package that is specifically for Asurion developers to use to keep eachother updated.
 
 ## How to Use
@@ -23,20 +23,26 @@ The website does not need to be updated by the developers as it is automatically
 ## Sample Template
 
 The sample template can be copied/pasted in your `ASPEN.md` file that you store locally.
+
 ```
-# (YOUR TEAM) Information
+## (YOUR TEAM) Information
 
 ## Mission Statement
 (add mission statement here)
 
 ## Important Information
-(Here you can put in any information that's relevant. We recommend the following fields:)
+(Here you can put in any information that's relevant)
 Tech Lead:
-Design Lead: 
+Design Lead:
 Product Lead:
-Repositories Owned:
+Repositories Owned in the following format:
+
+1. repo_name: ${name}, repo_url: ${url}
+
 
 ## Updates
 (Here you can leave frequent updates as to what your team is working on, the update frequency is up to you!)
+
+
 
 ```
