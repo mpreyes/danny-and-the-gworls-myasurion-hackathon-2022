@@ -1,13 +1,13 @@
 {
 	"name": "@mpreyes/asurion-aspen-pkg",
-	"version": "1.0.12",
+	"version": "1.0.13",
 	"description": "danny and the gworls",
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/mpreyes/danny-and-the-gworls-myasurion-hackathon-2022"
 	},
 	"private": false,
-	"main": "scripty.ts",
+	"main": "scripty.js",
 	"keywords": [],
 	"author": "danny and the gworls",
 	"license": "ISC",
