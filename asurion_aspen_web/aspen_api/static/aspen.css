@@ -142,7 +142,11 @@ body {
     font-size: 20px;
     margin-left: 5px;
 }
-
+.updates {
+    margin-left: 5px;
+    margin-top: 3px;
+    font-size: 16px;
+}
 .main-title {
     font-size: 36px;
     padding: 16px;

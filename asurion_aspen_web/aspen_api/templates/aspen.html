@@ -30,21 +30,25 @@
                 <div class="column">
                     <div class="team-info-title">Quick Links:</div>
                     <div class="row">
-                        <a href="https://www.w3docs.com/" class="aui-button">Repository</a>
+                        {% for name, url in i.repositories_owned.items %}
+                            <a href={{url}} class="aui-button">{{name}}</a>
+                        {% endfor %}
                     </div>
                 </div>
                 <div class="column">
                     <div class="team-info-title">Contact:</div>
-                    <p>Product Manager: {{i.product_manager}}</p>
+                    <p>Product Manager: {{i.product_lead}}</p>
                     <p>Tech Lead: {{i.tech_lead}}</p>
-                    <p>Designer: {{i.designer}}</p>
+                    <p>Designer: {{i.design_lead}}</p>
                 </div>
             </div>
             <div class="row">
                 <div class="team-info-title">
                     Updates:
                 </div>
-                <p>{{i.updates}}</p>
+                <div class="updates">
+                    {{i.updates}}
+                </div>
             </div>
         </div>
     </div>
