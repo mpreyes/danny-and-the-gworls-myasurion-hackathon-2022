@@ -8,4 +8,6 @@ from .models import Team
 class TeamSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Team
-        fields = ('name', 'url', 'tech_lead', 'design_lead', 'mission_statement')
+        fields = ('name', 'tech_lead', 'design_lead', 'product_lead', 'mission_statement', 'repositories_owned', 'updates')
+
+
