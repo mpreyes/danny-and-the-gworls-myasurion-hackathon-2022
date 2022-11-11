@@ -22,14 +22,14 @@ function syncReadFile(filename: string) {
 	// const aspenFile = findAspenFile(1);
 	// console.log("aspenFile", aspenFile);
 
-	const result = fs.readFileSync(join("../../../ASPEN.md", filename), "utf-8");
+	const result = fs.readFileSync(join(__dirname, filename), "utf-8");
 
-	console.log("__dirname", __dirname, "filename", filename);
+	// console.log("__dirname", __dirname, "filename", filename);
 
 	return result;
 }
 
-let fileData = syncReadFile("./ASPEN.md");
+let fileData = syncReadFile("./TEST.md");
 
 type TeamData = {
 	name: string;
@@ -123,7 +123,7 @@ const {
 	updates,
 } = parseFile(fileData);
 
-// console.log("goone", {
+// console.log("success", {
 // 	name,
 // 	mission_statement: missionStatement,
 // 	tech_lead: techLead,
@@ -133,23 +133,23 @@ const {
 // 	updates,
 // });
 
-// axios
-// 	.post(
-// 		"http://127.0.0.1:8000/teams/",
-// 		{
-// 			name,
-// 			mission_statement: missionStatement,
-// 			tech_lead: techLead,
-// 			design_lead: designLead,
-// 			product_lead: productLead,
-// 			repositories_owned: JSON.stringify(repositoriesOwned),
-// 			updates,
-// 		},
-// 		{ headers: { "Content-Type": "application/json" } }
-// 	)
-// 	.then(function (response) {
-// 		console.log("res", response.data);
-// 	})
-// 	.catch(function (error) {
-// 		console.log("error", error);
-// 	});
+axios
+	.post(
+		"http://127.0.0.1:8000/teams/",
+		{
+			name,
+			mission_statement: missionStatement,
+			tech_lead: techLead,
+			design_lead: designLead,
+			product_lead: productLead,
+			repositories_owned: JSON.stringify(repositoriesOwned),
+			updates,
+		},
+		{ headers: { "Content-Type": "application/json" } }
+	)
+	.then(function (response) {
+		console.log("success", response.data);
+	})
+	.catch(function (error) {
+		console.log("error", error);
+	});
