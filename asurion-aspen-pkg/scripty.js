@@ -22,8 +22,12 @@ var __importStar = (this && this.__importStar) || function (mod) {
     __setModuleDefault(result, mod);
     return result;
 };
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 const fs = __importStar(require("fs"));
+const axios_1 = __importDefault(require("axios"));
 const path_1 = require("path");
 function findAspenFile(attempts) {
     attempts = attempts || 1;
@@ -89,22 +93,29 @@ function parseFile(fileData) {
         updates,
     };
 }
-const teamData = parseFile(fileData);
-console.log("teamDataOBject", teamData);
-console.log("team data", teamData);
-// axios
-// 	.post(
-// 		"http://127.0.0.1:8000/teams/",
-// 		{
-// 			name: "madelyn",
-// 			url: fileData,
-// 		},
-// 		{ headers: { "Content-Type": "application/json" } }
-// 	)
-// 	.then(function (response) {
-// 		// console.log(response);
-// 		console.log("res", response.data);
-// 	})
-// 	.catch(function (error) {
-// 		console.log("error", error);
-// 	});
+const { name, missionStatement, techLead, designLead, productLead, repositoriesOwned, updates, } = parseFile(fileData);
+console.log("goone", {
+    name,
+    mission_statement: missionStatement,
+    tech_lead: techLead,
+    design_lead: designLead,
+    product_lead: productLead,
+    repositories_owned: JSON.stringify(repositoriesOwned),
+    updates,
+});
+axios_1.default
+    .post("http://127.0.0.1:8000/teams/", {
+    name,
+    mission_statement: missionStatement,
+    tech_lead: techLead,
+    design_lead: designLead,
+    product_lead: productLead,
+    repositories_owned: JSON.stringify(repositoriesOwned),
+    updates,
+}, { headers: { "Content-Type": "application/json" } })
+    .then(function (response) {
+    console.log("res", response.data);
+})
+    .catch(function (error) {
+    console.log("error", error);
+});

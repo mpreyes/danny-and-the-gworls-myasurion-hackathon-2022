@@ -110,23 +110,43 @@ function parseFile(fileData: string) {
 	} as teamData;
 }
 
-const teamData = parseFile(fileData);
-console.log("teamDataOBject", teamData);
+const {
+	name,
+	missionStatement,
+	techLead,
+	designLead,
+	productLead,
+	repositoriesOwned,
+	updates,
+} = parseFile(fileData);
 
-console.log("team data", teamData);
-// axios
-// 	.post(
-// 		"http://127.0.0.1:8000/teams/",
-// 		{
-// 			name: "madelyn",
-// 			url: fileData,
-// 		},
-// 		{ headers: { "Content-Type": "application/json" } }
-// 	)
-// 	.then(function (response) {
-// 		// console.log(response);
-// 		console.log("res", response.data);
-// 	})
-// 	.catch(function (error) {
-// 		console.log("error", error);
-// 	});
+console.log("goone", {
+	name,
+	mission_statement: missionStatement,
+	tech_lead: techLead,
+	design_lead: designLead,
+	product_lead: productLead,
+	repositories_owned: JSON.stringify(repositoriesOwned),
+	updates,
+});
+
+axios
+	.post(
+		"http://127.0.0.1:8000/teams/",
+		{
+			name,
+			mission_statement: missionStatement,
+			tech_lead: techLead,
+			design_lead: designLead,
+			product_lead: productLead,
+			repositories_owned: JSON.stringify(repositoriesOwned),
+			updates,
+		},
+		{ headers: { "Content-Type": "application/json" } }
+	)
+	.then(function (response) {
+		console.log("res", response.data);
+	})
+	.catch(function (error) {
+		console.log("error", error);
+	});
