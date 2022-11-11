@@ -2,39 +2,36 @@ import * as fs from "fs";
 import * as path from "path";
 import axios from "axios";
 import { join } from "path";
-
-function findAspenFile(attempts?: number): string {
+function findAspenFile(attempts?: number): any {
 	attempts = attempts || 1;
 	if (attempts > 5) {
 		throw new Error("Can't resolve main ASPEN.mdn file");
 	}
 	var mainPath = attempts === 1 ? "./" : Array(attempts).join("../");
-	console.log("ma", mainPath + "ASPEN.md");
-	console.log("require", require(mainPath + "ASPEN.md"));
-	try {
-		return require(mainPath + "ASPEN.md");
-	} catch (e) {
-		return findAspenFile(attempts + 1);
-	}
+	// const c = require("./ASPEN.md");
+	// console.log("ma", c);
+	// console.log("require", require(mainPath + "ASPEN.md"));
+	// try {
+	// 	return require(mainPath + "ASPEN.md");
+	// } catch (e) {
+	// 	return findAspenFile(attempts + 1);
+	// }
 }
 
 function syncReadFile(filename: string) {
 	// const aspenFile = findAspenFile(1);
-	// console.log("aspenFile", require.main.require("./ASPEN.md"));
+	// console.log("aspenFile", aspenFile);
 
-	const result = fs.readFileSync(join(__dirname, filename), "utf-8");
-	const attempt = fs.readFileSync(join(__dirname, filename), "utf-8");
+	const result = fs.readFileSync(join("../../../ASPEN.mdn", filename), "utf-8");
 
 	console.log("__dirname", __dirname, "filename", filename);
-
-	console.log("attempt to read file outside", attempt);
 
 	return result;
 }
 
 let fileData = syncReadFile("./ASPEN.md");
 
-type teamData = {
+type TeamData = {
 	name: string;
 	fileData: string; // this contains the original file data that was parsed on first uploaded
 	createdAt: string;
@@ -47,7 +44,7 @@ type teamData = {
 	updates?: string;
 };
 
-function parseFile(fileData: string) {
+function parseFile(fileData: string): TeamData {
 	let teamName;
 	let missionStatement;
 	let importantDetails;
@@ -60,7 +57,6 @@ function parseFile(fileData: string) {
 
 	if (fileData) {
 		const dataSections = fileData.split("##");
-		console.log("dataSections", dataSections);
 
 		teamName = dataSections
 			.find((v) => v.includes("Information"))
@@ -93,21 +89,28 @@ function parseFile(fileData: string) {
 			?.split("\n")
 			.filter((v) => v != "");
 
-		console.log("yeet", repositoriesOwned);
+		return {
+			name: teamName,
+			fileData,
+			createdAt: new Date().toString(),
+			updatedAt: new Date().toString(),
+			missionStatement: missionStatement,
+			techLead,
+			designLead,
+			productLead,
+			repositoriesOwned,
+			updates,
+		} as TeamData;
+	} else {
+		console.log("problems reading the file");
+		return {
+			name: "",
+			fileData: "",
+			createdAt: "",
+			updatedAt: "",
+			missionStatement: "",
+		};
 	}
-
-	return {
-		name: teamName,
-		fileData,
-		createdAt: new Date().toString(),
-		updatedAt: new Date().toString(),
-		missionStatement: missionStatement,
-		techLead,
-		designLead,
-		productLead,
-		repositoriesOwned,
-		updates,
-	} as teamData;
 }
 
 const {
@@ -120,33 +123,33 @@ const {
 	updates,
 } = parseFile(fileData);
 
-console.log("goone", {
-	name,
-	mission_statement: missionStatement,
-	tech_lead: techLead,
-	design_lead: designLead,
-	product_lead: productLead,
-	repositories_owned: JSON.stringify(repositoriesOwned),
-	updates,
-});
+// console.log("goone", {
+// 	name,
+// 	mission_statement: missionStatement,
+// 	tech_lead: techLead,
+// 	design_lead: designLead,
+// 	product_lead: productLead,
+// 	repositories_owned: JSON.stringify(repositoriesOwned),
+// 	updates,
+// });
 
-axios
-	.post(
-		"http://127.0.0.1:8000/teams/",
-		{
-			name,
-			mission_statement: missionStatement,
-			tech_lead: techLead,
-			design_lead: designLead,
-			product_lead: productLead,
-			repositories_owned: JSON.stringify(repositoriesOwned),
-			updates,
-		},
-		{ headers: { "Content-Type": "application/json" } }
-	)
-	.then(function (response) {
-		console.log("res", response.data);
-	})
-	.catch(function (error) {
-		console.log("error", error);
-	});
+// axios
+// 	.post(
+// 		"http://127.0.0.1:8000/teams/",
+// 		{
+// 			name,
+// 			mission_statement: missionStatement,
+// 			tech_lead: techLead,
+// 			design_lead: designLead,
+// 			product_lead: productLead,
+// 			repositories_owned: JSON.stringify(repositoriesOwned),
+// 			updates,
+// 		},
+// 		{ headers: { "Content-Type": "application/json" } }
+// 	)
+// 	.then(function (response) {
+// 		console.log("res", response.data);
+// 	})
+// 	.catch(function (error) {
+// 		console.log("error", error);
+// 	});

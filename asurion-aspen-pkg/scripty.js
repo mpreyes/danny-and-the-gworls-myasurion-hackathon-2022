@@ -22,12 +22,8 @@ var __importStar = (this && this.__importStar) || function (mod) {
     __setModuleDefault(result, mod);
     return result;
 };
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
 const fs = __importStar(require("fs"));
-const axios_1 = __importDefault(require("axios"));
 const path_1 = require("path");
 function findAspenFile(attempts) {
     attempts = attempts || 1;
@@ -35,22 +31,20 @@ function findAspenFile(attempts) {
         throw new Error("Can't resolve main ASPEN.mdn file");
     }
     var mainPath = attempts === 1 ? "./" : Array(attempts).join("../");
-    console.log("ma", mainPath + "ASPEN.md");
-    console.log("require", require(mainPath + "ASPEN.md"));
-    try {
-        return require(mainPath + "ASPEN.md");
-    }
-    catch (e) {
-        return findAspenFile(attempts + 1);
-    }
+    // const c = require("./ASPEN.md");
+    // console.log("ma", c);
+    // console.log("require", require(mainPath + "ASPEN.md"));
+    // try {
+    // 	return require(mainPath + "ASPEN.md");
+    // } catch (e) {
+    // 	return findAspenFile(attempts + 1);
+    // }
 }
 function syncReadFile(filename) {
     // const aspenFile = findAspenFile(1);
-    // console.log("aspenFile", require.main.require("./ASPEN.md"));
-    const result = fs.readFileSync((0, path_1.join)(__dirname, filename), "utf-8");
-    const attempt = fs.readFileSync((0, path_1.join)(__dirname, filename), "utf-8");
+    // console.log("aspenFile", aspenFile);
+    const result = fs.readFileSync((0, path_1.join)("../../../ASPEN.mdn", filename), "utf-8");
     console.log("__dirname", __dirname, "filename", filename);
-    console.log("attempt to read file outside", attempt);
     return result;
 }
 let fileData = syncReadFile("./ASPEN.md");
@@ -66,7 +60,6 @@ function parseFile(fileData) {
     let updates;
     if (fileData) {
         const dataSections = fileData.split("##");
-        console.log("dataSections", dataSections);
         teamName = (_a = dataSections
             .find((v) => v.includes("Information"))) === null || _a === void 0 ? void 0 : _a.split(" Information")[0].toUpperCase();
         missionStatement = (_b = dataSections
@@ -78,44 +71,57 @@ function parseFile(fileData) {
         designLead = (_f = importantDetails === null || importantDetails === void 0 ? void 0 : importantDetails.split("Design Lead:").pop()) === null || _f === void 0 ? void 0 : _f.split("\n")[0];
         productLead = (_g = importantDetails === null || importantDetails === void 0 ? void 0 : importantDetails.split("Product Lead:").pop()) === null || _g === void 0 ? void 0 : _g.split("\n")[0];
         repositoriesOwned = (_h = importantDetails === null || importantDetails === void 0 ? void 0 : importantDetails.split("Repositories Owned in the following format:").pop()) === null || _h === void 0 ? void 0 : _h.split("\n").filter((v) => v != "");
-        console.log("yeet", repositoriesOwned);
+        return {
+            name: teamName,
+            fileData,
+            createdAt: new Date().toString(),
+            updatedAt: new Date().toString(),
+            missionStatement: missionStatement,
+            techLead,
+            designLead,
+            productLead,
+            repositoriesOwned,
+            updates,
+        };
     }
-    return {
-        name: teamName,
-        fileData,
-        createdAt: new Date().toString(),
-        updatedAt: new Date().toString(),
-        missionStatement: missionStatement,
-        techLead,
-        designLead,
-        productLead,
-        repositoriesOwned,
-        updates,
-    };
+    else {
+        console.log("problems reading the file");
+        return {
+            name: "",
+            fileData: "",
+            createdAt: "",
+            updatedAt: "",
+            missionStatement: "",
+        };
+    }
 }
 const { name, missionStatement, techLead, designLead, productLead, repositoriesOwned, updates, } = parseFile(fileData);
-console.log("goone", {
-    name,
-    mission_statement: missionStatement,
-    tech_lead: techLead,
-    design_lead: designLead,
-    product_lead: productLead,
-    repositories_owned: JSON.stringify(repositoriesOwned),
-    updates,
-});
-axios_1.default
-    .post("http://127.0.0.1:8000/teams/", {
-    name,
-    mission_statement: missionStatement,
-    tech_lead: techLead,
-    design_lead: designLead,
-    product_lead: productLead,
-    repositories_owned: JSON.stringify(repositoriesOwned),
-    updates,
-}, { headers: { "Content-Type": "application/json" } })
-    .then(function (response) {
-    console.log("res", response.data);
-})
-    .catch(function (error) {
-    console.log("error", error);
-});
+// console.log("goone", {
+// 	name,
+// 	mission_statement: missionStatement,
+// 	tech_lead: techLead,
+// 	design_lead: designLead,
+// 	product_lead: productLead,
+// 	repositories_owned: JSON.stringify(repositoriesOwned),
+// 	updates,
+// });
+// axios
+// 	.post(
+// 		"http://127.0.0.1:8000/teams/",
+// 		{
+// 			name,
+// 			mission_statement: missionStatement,
+// 			tech_lead: techLead,
+// 			design_lead: designLead,
+// 			product_lead: productLead,
+// 			repositories_owned: JSON.stringify(repositoriesOwned),
+// 			updates,
+// 		},
+// 		{ headers: { "Content-Type": "application/json" } }
+// 	)
+// 	.then(function (response) {
+// 		console.log("res", response.data);
+// 	})
+// 	.catch(function (error) {
+// 		console.log("error", error);
+// 	});
