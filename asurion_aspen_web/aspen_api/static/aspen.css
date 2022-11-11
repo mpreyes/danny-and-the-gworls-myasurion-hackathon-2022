@@ -1,0 +1,88 @@
+html{
+    margin: 0;
+}
+body {
+    background-color: #121212;
+    color: white;
+    font-family: "Clarkson",Helvetica,sans-serif;
+    font-style: normal;
+    margin: 0;
+  }
+
+  .card {
+    /* Add shadows to create the "card" effect */
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+  }
+  
+  /* On mouse-over, add a deeper shadow */
+  .card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  }
+  
+  /* Add some padding inside the card container */
+  .container {
+    padding: 2px 16px;
+    background-color: white;
+    color: black;
+    margin: 6rem;
+  }
+
+  .top-nav{
+    background-color: rgba(255, 255, 255, 0.3);
+    padding: 1rem;
+  }
+
+  .search-container {
+    position: absolute;
+    width: 100%;
+    margin: 1em;
+  }
+
+  .search {
+    position: relative;
+    display: flex;
+    color: black;
+  }
+
+  .search-bar {
+    margin-left:auto;
+    margin-right:auto;
+    display: flex;
+    width: 500px;
+  }
+
+  .search-bar::placeholder {
+    margin-left:auto;
+    margin-right:auto;
+    display: flex;
+    color: black
+  }
+
+  .searchButton {
+    width: 80px;
+    height: 36px;
+    border: 1px solid #00B4CC;
+    background: #00B4CC;
+    text-align: center;
+    color: #fff;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+    font-size: 18px;
+  }
+
+  .search-term {
+    width: 100%;
+    border: 1px solid #00B4CC;
+    border-right: none;
+    padding: 5px;
+    height: 20px;
+    border-radius: 5px 0 0 5px;
+    outline: none;
+    color: #9DBFAF;
+    height: 36px;
+  }
+  
+  .search-term:focus{
+    color: #00B4CC;
+  }

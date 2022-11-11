@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+    <link rel="stylesheet" href="{% static 'aspen.css' %}">
+        <body>
+            <div class="top-nav">
+                <h1>Asurion Team Registry</h1>
+            </div>
+
+            <div class="search-container">
+                <div class="search">
+                    <form class="search-bar" method="GET" action=""  >
+                        <input class="search-term" type="search" placeholder="Search for a team..." name="search"> 
+                        <button type="submit" class="searchButton"> Search</button>
+                    </form>
+                </div>
+            </div>
+          
+            {% for i in team_list %}
+            <div class="card">
+                <div class="container">
+                    <h2>{{i.name}}</h2>
+                    <h4>Repository Url: {{i.url}}</h4>
+                </div>
+            </div>
+            {% endfor %}
+        <body>
+    </html>
