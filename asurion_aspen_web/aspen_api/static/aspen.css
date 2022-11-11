@@ -1,6 +1,7 @@
-html{
+html {
     margin: 0;
 }
+
 body {
     background-color: #121212;
     color: white;
@@ -8,59 +9,60 @@ body {
     font-style: normal;
     margin: 0;
     font-weight: 500;
-  }
+}
 
-  .card {
+.card {
     /* Add shadows to create the "card" effect */
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     transition: 0.3s;
-  }
-  
-  /* On mouse-over, add a deeper shadow */
-  .card:hover {
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
-  }
-  
-  /* Add some padding inside the card container */
-  .container {
+}
+
+/* On mouse-over, add a deeper shadow */
+.card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+/* Add some padding inside the card container */
+.container {
     padding: 2px 16px;
     background-color: white;
     color: black;
     margin: 3rem;
-  }
+    border-radius: 4px;
+}
 
-  .top-nav{
-    background-color: rgba(255, 255, 255, 0.3);
+.top-nav {
+    background-color: rgba(255, 255, 255, 0.1);
     padding: 1rem;
-  }
+}
 
-  .search-container {
+.search-container {
     /* position: absolute; */
     width: 100%;
     margin: 1em;
-  }
+}
 
-  .search {
+.search {
     /* position: relative; */
     display: flex;
     color: black;
-  }
+}
 
-  .search-bar {
-    margin-left:auto;
-    margin-right:auto;
+.search-bar {
+    margin-left: auto;
+    margin-right: auto;
     display: flex;
     width: 500px;
-  }
+}
 
-  .search-bar::placeholder {
-    margin-left:auto;
-    margin-right:auto;
+.search-bar::placeholder {
+    margin-left: auto;
+    margin-right: auto;
     display: flex;
     color: black
-  }
+}
 
-  .searchButton {
+.searchButton {
     width: 80px;
     height: 36px;
     border: 1px solid rgb(130, 35, 210);
@@ -70,9 +72,9 @@ body {
     border-radius: 0 5px 5px 0;
     cursor: pointer;
     font-size: 18px;
-  }
+}
 
-  .search-term {
+.search-term {
     width: 100%;
     border: 1px solid rgb(130, 35, 210);
     border-right: none;
@@ -82,13 +84,13 @@ body {
     outline: none;
     color: #9DBFAF;
     height: 36px;
-  }
-  
-  .search-term:focus{
+}
+
+.search-term:focus {
     color: rgb(130, 35, 210);
-  }
-  
-  .aui-button {
+}
+
+.aui-button {
     font-family: inherit;
     font-weight: 400;
     font-style: normal;
@@ -112,36 +114,36 @@ body {
     color: rgb(255, 255, 255);
     margin-right: 5px;
     text-decoration: none;
-  }
+}
 
-  .row {
+.row {
     display: flex;
-    padding-top:10px;
-    padding-bottom:10px
-  }
-  
-  .column {
-    flex: 50%;
-  }
+    padding-top: 10px;
+    padding-bottom: 10px
+}
 
-  .team-info-title {
+.column {
+    flex: 50%;
+}
+
+.team-info-title {
     font-size: 20px;
     font-weight: 600;
     margin-bottom: 10px;
-  }
+}
 
-  .sort-text {
+.sort-text {
     margin: 3rem;
     font-size: 22px;
     text-decoration: underline;
-  }
+}
 
-  .mission-statement{
+.mission-statement {
     font-size: 20px;
     margin-left: 5px;
-  }
+}
 
-  .main-title{
-    font-size:36px;
+.main-title {
+    font-size: 36px;
     padding: 16px;
-  }
+}
